@@ -263,11 +263,9 @@
   "openapi": "3.1.0",
   "servers": [
     {
-      "url": "https://{endpoint}",
+      "url": "https://api.gwapialoha.co/api/agents/",
       "variables": {
-        "endpoint": {
-          "default": ""
-        }
+        
       }
     }
   ],
