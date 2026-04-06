@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://schema.buildwithfern.dev/docs-yml.json
+
+instances:
+  - url: usdt-payments.docs.buildwithfern.com
+    edit-this-page:
+      github:
+        owner: welcome-to-fern
+        repo: gwapi-aloha-s-team-439830
+        branch: main
+      launch: dashboard
+ai-search:
+  location:
+    - docs
+ai-examples:
+  enabled: false
+title: usdt-payments | Documentation
+layout:
+  searchbar-placement: header
+  page-width: full
+navigation:
+  - api: WEB API
+    flattened: true
+colors:
+  accent-primary:
+    dark: "#008700"
+    light: "#008700"
+  background:
+    dark: "#111113"
+    light: "#FFFFFF"
+theme:
+  page-actions: toolbar
+  footer-nav: minimal
+logo:
+  dark: docs/assets/logo.svg
+  light: docs/assets/logo.svg
+  height: 20
+  href: https://buildwithfern.com
+favicon: docs/assets/favicon.svg
