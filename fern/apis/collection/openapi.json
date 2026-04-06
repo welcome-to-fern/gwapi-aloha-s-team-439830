@@ -4,7 +4,7 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/%7BAGENT_ID%7D/balance": {
+    "/[AGENT_ID]/balance": {
       "get": {
         "summary": "GET AGENT BALANCE",
         "responses": {
@@ -13,11 +13,11 @@
           }
         },
         "description": "Retrieves the TRON network wallet address assigned to a specific customer.\n\n**Method:** `GET`  \n**URL:** `{{ENDPOINT}}/{{AGENT_ID}}/customers/0809991234/address/tron`\n\n### Parameters\n\n| Variable / Segment | Description |\n|---|---|\n| `{{ENDPOINT}}` | Base URL of the API server |\n| `{{AGENT_ID}}` | Unique identifier of the agent managing the customer |\n| `0809991234` | The customer's phone number or unique identifier |\n| `tron` | Specifies the blockchain network (TRON) for the wallet address |\n\n### Authentication\nRequires an API key passed via the `x-api-key` request header using the `{{API_KEY}}` environment variable.\n\n### Notes\n- Returns the TRON blockchain deposit address associated with the given customer.\n- Replace `0809991234` with the actual customer identifier when using this request.\n- This address is typically used for receiving crypto deposits on the TRON network.",
-        "operationId": "get%7bagent_id%7dBalance",
+        "operationId": "get[AGENT_ID]Balance",
         "x-fern-sdk-method-name": "GET AGENT BALANCE"
       }
     },
-    "/%7BAGENT_ID%7D/customers/add": {
+    "/[AGENT_ID]/customers/add": {
       "post": {
         "summary": "ADD CUSTOMER",
         "responses": {
@@ -26,7 +26,7 @@
           }
         },
         "description": "Registers a new customer under the specified agent account.\n\n**Method:** `POST`  \n**URL:** `{{ENDPOINT}}/{{AGENT_ID}}/customers/add`\n\n### Parameters\n\n| Variable | Description |\n| --- | --- |\n| `{{ENDPOINT}}` | Base URL of the API server |\n| `{{AGENT_ID}}` | Unique identifier of the agent managing the customer |\n\n### Request Body\n\nSend the customer details (e.g., name, phone number, or other identifying information) as a JSON payload in the request body.\n\n### Authentication\n\nRequires an API key passed via the `x-api-key` request header using the `{{API_KEY}}` environment variable.\n\n### Notes\n\n- This endpoint creates a new customer record linked to the agent identified by `{{AGENT_ID}}`.\n    \n- Ensure the customer does not already exist before calling this endpoint to avoid duplicate records.",
-        "operationId": "post%7bagent_id%7dCustomersAdd",
+        "operationId": "post[AGENT_ID]CustomersAdd",
         "requestBody": {
           "content": {
             "application/json": {
@@ -71,7 +71,7 @@
         "x-fern-sdk-method-name": "ADD CUSTOMER"
       }
     },
-    "/%7BAGENT_ID%7D/customers/0809991234/withdraw": {
+    "/[AGENT_ID]/customers/0809991234/withdraw": {
       "post": {
         "summary": "request customer withdraw",
         "responses": {
@@ -80,7 +80,7 @@
           }
         },
         "description": "Initiates a withdrawal request on behalf of a specific customer.\n\n**Method:** `POST`  \n**URL:** `{{ENDPOINT}}/{{AGENT_ID}}/customers/0809991234/withdraw`\n\n### Parameters\n\n| Variable / Segment | Description |\n|---|---|\n| `{{ENDPOINT}}` | Base URL of the API server |\n| `{{AGENT_ID}}` | Unique identifier of the agent managing the customer |\n| `0809991234` | The customer's phone number or unique identifier |\n\n### Request Body\nProvide the withdrawal details as a JSON payload. Typically includes fields such as the amount to withdraw, the destination wallet address, and the target blockchain network.\n\n### Authentication\nRequires an API key passed via the `x-api-key` request header using the `{{API_KEY}}` environment variable.\n\n### Notes\n- The customer must have an active withdrawal address configured before this request can be processed.\n- Replace `0809991234` with the actual customer identifier when using this request.\n- Ensure sufficient balance is available for the customer before initiating a withdrawal.\n- This action may be irreversible once processed — verify all details in the request body before sending.",
-        "operationId": "post%7bagent_id%7dCustomers0809991234Withdraw",
+        "operationId": "post[AGENT_ID]Customers0809991234Withdraw",
         "requestBody": {
           "content": {
             "application/json": {
@@ -109,7 +109,7 @@
         "x-fern-sdk-method-name": "request customer withdraw"
       }
     },
-    "/%7BAGENT_ID%7D/customers/0809991234/address/tron": {
+    "/[AGENT_ID]/customers/0809991234/address/tron": {
       "get": {
         "summary": "GET WALLET ADDRESS",
         "responses": {
@@ -118,11 +118,11 @@
           }
         },
         "description": "Retrieves the TRON network wallet address assigned to a specific customer.\n\n**Method:** `GET`  \n**URL:** `{{ENDPOINT}}/{{AGENT_ID}}/customers/0809991234/address/tron`\n\n### Parameters\n\n| Variable / Segment | Description |\n|---|---|\n| `{{ENDPOINT}}` | Base URL of the API server |\n| `{{AGENT_ID}}` | Unique identifier of the agent managing the customer |\n| `0809991234` | The customer's phone number or unique identifier |\n| `tron` | Specifies the blockchain network (TRON) for the wallet address |\n\n### Authentication\nRequires an API key passed via the `x-api-key` request header using the `{{API_KEY}}` environment variable.\n\n### Notes\n- Returns the TRON blockchain deposit address associated with the given customer.\n- Replace `0809991234` with the actual customer identifier when using this request.\n- This address is typically used for receiving crypto deposits on the TRON network.",
-        "operationId": "get%7bagent_id%7dCustomers0809991234AddressTron",
+        "operationId": "get[AGENT_ID]Customers0809991234AddressTron",
         "x-fern-sdk-method-name": "GET WALLET ADDRESS"
       }
     },
-    "/%7BAGENT_ID%7D/customers/0809991234/withdraw/address": {
+    "/[AGENT_ID]/customers/0809991234/withdraw/address": {
       "patch": {
         "summary": "UPDATE WITHDRAW ADDRESS",
         "responses": {
@@ -131,7 +131,7 @@
           }
         },
         "description": "Updates the withdrawal destination address for a specific customer.\n\n**Method:** `PATCH`  \n**URL:** `{{ENDPOINT}}/{{AGENT_ID}}/customers/0809991234/withdraw/address`\n\n### Parameters\n\n| Variable / Segment | Description |\n|---|---|\n| `{{ENDPOINT}}` | Base URL of the API server |\n| `{{AGENT_ID}}` | Unique identifier of the agent managing the customer |\n| `0809991234` | The customer's phone number or unique identifier |\n\n### Request Body\nProvide the new withdrawal address details as a JSON payload. Typically includes the new wallet address and possibly the network/chain type.\n\n### Authentication\nRequires an API key passed via the `x-api-key` request header using the `{{API_KEY}}` environment variable.\n\n### Notes\n- This is a partial update (`PATCH`), so only the fields provided in the request body will be modified.\n- Replace `0809991234` with the actual customer identifier when using this request.\n- Ensure the new address is valid for the intended blockchain network before submitting.",
-        "operationId": "patch%7bagent_id%7dCustomers0809991234WithdrawAddress",
+        "operationId": "patch[AGENT_ID]Customers0809991234WithdrawAddress",
         "requestBody": {
           "content": {
             "application/json": {
@@ -160,7 +160,7 @@
         "x-fern-sdk-method-name": "UPDATE WITHDRAW ADDRESS"
       }
     },
-    "/%7BAGENT_ID%7D/customers/0809991234/transactions/deposit": {
+    "/[AGENT_ID]/customers/0809991234/transactions/deposit": {
       "get": {
         "summary": "get customer deposit transactions",
         "responses": {
@@ -169,7 +169,7 @@
           }
         },
         "description": "Retrieves the list of deposit transactions for a specific customer.\n\n**Method:** `GET`  \n**URL:** `{{ENDPOINT}}/{{AGENT_ID}}/customers/0809991234/transactions/deposit`\n\n### Parameters\n\n| Variable / Segment | Description |\n|---|---|\n| `{{ENDPOINT}}` | Base URL of the API server |\n| `{{AGENT_ID}}` | Unique identifier of the agent managing the customer |\n| `0809991234` | The customer's phone number or unique identifier |\n\n### Authentication\nRequires an API key passed via the `x-api-key` request header using the `{{API_KEY}}` environment variable.\n\n### Notes\n- Returns a history of all inbound (deposit) transactions associated with the specified customer.\n- Replace `0809991234` with the actual customer identifier when using this request.\n- Response may include transaction details such as amount, timestamp, network, status, and transaction hash.",
-        "operationId": "get%7bagent_id%7dCustomers0809991234TransactionsDeposit",
+        "operationId": "get[AGENT_ID]Customers0809991234TransactionsDeposit",
         "requestBody": {
           "content": {
             "application/json": {
@@ -193,7 +193,7 @@
         "x-fern-sdk-method-name": "get customer deposit transactions"
       }
     },
-    "/%7BAGENT_ID%7D/customers/0809991234/transactions/withdraw": {
+    "/[AGENT_ID]/customers/0809991234/transactions/withdraw": {
       "get": {
         "summary": "get customer withdraw transactions",
         "responses": {
@@ -202,7 +202,7 @@
           }
         },
         "description": "Retrieves the list of withdrawal transactions for a specific customer.\n\n**Method:** `GET`  \n**URL:** `{{ENDPOINT}}/{{AGENT_ID}}/customers/0809991234/transactions/withdraw`\n\n### Parameters\n\n| Variable / Segment | Description |\n|---|---|\n| `{{ENDPOINT}}` | Base URL of the API server |\n| `{{AGENT_ID}}` | Unique identifier of the agent managing the customer |\n| `0809991234` | The customer's phone number or unique identifier |\n\n### Authentication\nRequires an API key passed via the `x-api-key` request header using the `{{API_KEY}}` environment variable.\n\n### Notes\n- Returns a history of all outbound (withdrawal) transactions associated with the specified customer.\n- Replace `0809991234` with the actual customer identifier when using this request.\n- Response may include transaction details such as amount, destination address, timestamp, network, status, and transaction hash.",
-        "operationId": "get%7bagent_id%7dCustomers0809991234TransactionsWithdraw",
+        "operationId": "get[AGENT_ID]Customers0809991234TransactionsWithdraw",
         "requestBody": {
           "content": {
             "application/json": {
@@ -226,7 +226,7 @@
         "x-fern-sdk-method-name": "get customer withdraw transactions"
       }
     },
-    "/%7BAGENT_ID%7D/customers/0809991234/withdraw/address/disactivate": {
+    "/[AGENT_ID]/customers/0809991234/withdraw/address/disactivate": {
       "patch": {
         "summary": "DISACTIVATE WITHDRAW ADDRESS",
         "responses": {
@@ -235,7 +235,7 @@
           }
         },
         "description": "Deactivates the withdrawal address currently associated with a specific customer, disabling their ability to withdraw to that address.\n\n**Method:** `PATCH`  \n**URL:** `{{ENDPOINT}}/{{AGENT_ID}}/customers/0809991234/withdraw/address/disactivate`\n\n### Parameters\n\n| Variable / Segment | Description |\n|---|---|\n| `{{ENDPOINT}}` | Base URL of the API server |\n| `{{AGENT_ID}}` | Unique identifier of the agent managing the customer |\n| `0809991234` | The customer's phone number or unique identifier |\n\n### Authentication\nRequires an API key passed via the `x-api-key` request header using the `{{API_KEY}}` environment variable.\n\n### Notes\n- This action marks the customer's withdrawal address as inactive without permanently deleting it.\n- Replace `0809991234` with the actual customer identifier when using this request.\n- To re-enable withdrawals, the address must be updated or reactivated via the appropriate endpoint.\n- Use with caution — deactivating a withdrawal address will prevent the customer from initiating withdrawals until a valid address is set.",
-        "operationId": "patch%7bagent_id%7dCustomers0809991234WithdrawAddressDisactivate",
+        "operationId": "patch[AGENT_ID]Customers0809991234WithdrawAddressDisactivate",
         "requestBody": {
           "content": {
             "application/json": {
