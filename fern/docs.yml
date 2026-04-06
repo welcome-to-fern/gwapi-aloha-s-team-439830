@@ -2,6 +2,7 @@
 
 instances:
   - url: usdt-payments.docs.buildwithfern.com
+    custom-domain: docs.gwapialoha.co
     edit-this-page:
       github:
         owner: welcome-to-fern
